@@ -16,13 +16,13 @@ void setup() {
   
   //data_pin, latch_pin, and clock_pin are defined in shiftRegister.h
   //these pins are for the shift register.
-  pinMode(DATA_PIN, OUTPUT);
-  pinMode(LATCH_PIN, OUTPUT);
   pinMode(CLOCK_PIN, OUTPUT);
+  pinMode(LATCH_PIN, OUTPUT);
+  pinMode(DATA_PIN, OUTPUT);
   
   //intializing the bluetooth module pins.
-  pinMode(BLU_RX, INPUT);
   pinMode(BLU_TX, OUTPUT);
+  pinMode(BLU_RX, INPUT);
 
   // initializing the relay pin
   pinMode(RELAY_PIN, OUTPUT);
@@ -86,16 +86,6 @@ void loop() {
   
 
   switch (state) {
-  case 'N':
-  // Serial.println("In the waiting state");
-  //kitch assist hasn't recieved any commands yet.
-
-  //ask the user to send a command.
-  lcd.setCursor(0, 0);
-  lcd.println("NO COMMANDS YET.");
-  lcd.setCursor(1, 1);
-  lcd.print("");
-  break;
 
   //this case is for the cooking state.
   case 'C':
@@ -133,15 +123,20 @@ void loop() {
     }
   break;
 
+  case 'N':
+  // Serial.println("In the waiting state");
+  //kitch assist hasn't recieved any commands yet.
+
+  //ask the user to send a command.
+  lcd.setCursor(0, 0);
+  lcd.println("NO COMMANDS YET.");
+  lcd.setCursor(1, 1);
+  lcd.print("");
+  break;
+
   //rare case where nothing is happening.
   default: 
     //break dawn to 0.
   break;
   }
 }
-
-  /*
-    can you check the state of the bluetooth connection and change colors on connection and disconnection?
-    you can also play some tones when it connects or disconnects.
-    you can set up another interrupt pin.
-  */
