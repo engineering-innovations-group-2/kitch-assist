@@ -4,3 +4,4 @@ Kitch Assist is an arduino application that automatically regulates the temperat
 ## Main Motivation
 1. Prevent accidental fires in cases where the user forgets to attend to the meal.
 2. Save power costs by ensuring stove doesn't run on forever in such events.
+3. Minimize the inefficient use of electricity when using electric stove.
